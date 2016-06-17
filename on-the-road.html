@@ -1,0 +1,207 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="refresh" content="1800" > 
+
+    <title>The Digital Scroll: Jack Kerouac's On the Road</title>
+    <link rel="stylesheet" href="leaflet.css" />
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.ie.css" />
+    <![endif]-->
+    <style type="text/css">
+        html, body, #photo {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            background-color:#453823;
+            background-image: url(images/background.png);
+            background-repeat:no-repeat;
+            
+        }
+        #accordion {
+            position: relative;
+            width:23%;
+        }
+        .header_c {
+            position:relative;
+            z-index:8;
+        }
+        .explore_c {   
+            position:relative;
+            z-index:8;
+            float:right;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="photo">
+
+        <img class ="header_c" src="images/header.png" alt="header">
+        <img class ="explore_c" src="images/explore.png" alt="explore">
+
+        <script src ="leaflet.js"></script>
+        <script type="text/javascript" src="L.TileLayer.Zoomify.js"></script>  
+        <script src ="leaflet.viewcenter.js"></script>
+  	    <script src ="jquery-ui-1.10.4.custom/js/jquery-1.10.2.js"></script>    
+	      <link href  ="jquery-ui-1.10.4.custom/css/pepper-grinder/jquery-ui-1.10.4.custom.css" rel="stylesheet">
+  	    <script src ="jquery-ui-1.10.4.custom/js/jquery-ui-1.10.4.custom.js"></script>
+  	    <script type="text/javascript" >
+	
+            /* JQuery Accordian Function */
+            $(function() {
+                $( "#accordion" ).accordion();
+            });
+
+            /* Leaflet Map Setup */
+            var map = L.map('photo', {zoomControl:false}).setView(new L.LatLng(0,0), 0).setMaxBounds([[-84.45618,-179.99725],[85.05113,-176.29211]]);
+
+            L.tileLayer.zoomify('Manuscript-Zoomify/', { 
+                width: 2700, 
+                height: 257400,
+                tolerance: 1,
+                attribution: '<i>On the Road</i> by Jack Kerouac'
+            }).addTo(map);
+
+           /* location fast travel buttons */	
+
+           var viewCenter3 = new L.Control.ViewCenter({title: 'Sheet 1: Page 1-35', vcLatLng: [85.00423, -178.21747],vcZoom: 9});
+           map.addControl(viewCenter3);
+           
+           var viewCenter4 = new L.Control.ViewCenter({title: 'Sheet 2: Page 35-65', vcLatLng: [80.80505, -178.09937],vcZoom: 9});
+           map.addControl(viewCenter4);
+           
+           var viewCenter5 = new L.Control.ViewCenter({title: 'Sheet 3: Page 65-105', vcLatLng: [73.21401, -177.84668],vcZoom: 9});
+           map.addControl(viewCenter5);
+           
+           var viewCenter6 = new L.Control.ViewCenter({title: 'Sheet 4: Page 105-150', vcLatLng: [51.01894, -177.92633],vcZoom: 9});
+           map.addControl(viewCenter6);
+
+           var viewCenter11 = new L.Control.ViewCenter({title: 'Arrival at Bill Burroughs\' home', vcLatLng: [18.77632, -177.5528],vcZoom: 9});
+           map.addControl(viewCenter11);
+           
+           var viewCenter1 = new L.Control.ViewCenter({title: 'Description of Bill Burroughs', vcLatLng: [17.1959, -178.28339],vcZoom: 9});
+           map.addControl(viewCenter1);
+
+           var viewCenter7 = new L.Control.ViewCenter({title: 'Sheet 5: Page 150-189', vcLatLng: [9.25394, -177.67365],vcZoom: 9});
+           map.addControl(viewCenter7);
+           
+           var viewCenter8 = new L.Control.ViewCenter({title: 'Sheet 6: Page 189-227', vcLatLng: [-34.25268, -177.73682],vcZoom: 9});
+           map.addControl(viewCenter8);
+           
+           var viewCenter9 = new L.Control.ViewCenter({title: 'Sheet 7: Page 227-263', vcLatLng: [-63.36445, -177.95654],vcZoom: 9});
+           map.addControl(viewCenter9);
+           
+           var viewCenter10 = new L.Control.ViewCenter({title: 'Sheet 8: Page 263-300', vcLatLng: [-77.91337, -178.1543],vcZoom: 9});
+           map.addControl(viewCenter10);
+           
+           var viewCenter2 = new L.Control.ViewCenter({title: 'End of Scroll: "Probably a dog"', vcLatLng: [-84.3302, -177.01309],vcZoom: 9});  
+           map.addControl(viewCenter2);
+           
+           /* begin marker section */
+        //   var marker1 = L.marker([-84.3302, -177.01309]).addTo(map);
+        //   marker1.bindPopup("\"Probably a dog\"");
+
+           var marker1 = L.marker([85.00423, -17821747]).addTo(map);
+           marker1.bindPopup("Sheet 1");
+                           
+           var marker2 = L.marker([80.80505, -178.09937]).addTo(map);
+           marker2.bindPopup("Sheet 2");
+                                         
+           var marker3 = L.marker([73.21401, -177.84668]).addTo(map);
+           marker3.bindPopup("Sheet 3");
+                                                         
+           var marker4 = L.marker([51.01894, -177.92633]).addTo(map);
+           marker4.bindPopup("Sheet 4");
+                                                                         
+           var marker5 = L.marker([9.25394, -177.67365]).addTo(map);
+           marker5.bindPopup("Sheet 5");
+                                                                                 
+           var marker6 = L.marker([-34.25268, -177.73682]).addTo(map);
+           marker6.bindPopup("Sheet 6");
+                                                                                         
+           var marker7 = L.marker([-63.36445, -177.95654]).addTo(map);
+           marker7.bindPopup("Sheet 7");
+                                                                                                 
+           var marker8 = L.marker([-77.91337, -178.1543]).addTo(map);
+           marker8.bindPopup("Sheet 8");
+
+           var marker9 = L.marker([18.77632, -177.5528]).addTo(map);
+           marker9.bindPopup("Arrival at Bill Burroughs' home");
+
+           var marker10 = L.marker([17.1959, -178.28339]).addTo(map);
+           marker10.bindPopup("Description of Bill Burroughs");
+ 
+           var marker11 = L.marker([-84.3302, -177.01309]).addTo(map);
+           marker10.bindPopup("End of Scroll: 'Probably a dog'");       
+           
+           /* end marker section */
+         
+           /* begin debug section for marker placement 
+           var popup = L.popup();
+
+           function onMapClick(e) {
+              popup
+                .setLatLng(e.latlng)
+                .setContent(e.latlng.toString())
+                .openOn(map);
+            }
+
+            map.on('click', onMapClick);
+
+            /* end debug section for marker placement */
+          </script>
+
+    <div id ="background-image"></div>
+        <div id="accordion">
+          <h3><i>Everything Is Permitted: The Life and Work of William S. Burroughs</i></h3>
+          <div>
+            <img src="images/327118_actual.png" alt="The Burroughs Century">
+            <p>
+            In celebration of William S. Burroughs' 100th birthday this February, Bloomington has developed a festival in his honor, reflecting his influence throughout America, 
+            and our own everyday lives.</p>
+            <p>
+            This exhibit includes first editions of Burroughs' novels "Junkie" and "Naked Lunch"; materials from the archives of the author's British publishers; 
+            materials on loan from Ohio State University related to Burroughs' 1981 visit to Bloomington, when he performed at The Bluebird with the band 
+            The Dancing Cigarettes; and the original scroll manuscript of fellow Beat writer Jack Kerouac's "On the Road," on loan from Indianapolis Colts owner Jim Irsay.
+            
+            </p>
+
+          </div>
+         
+          <h3>The Digital Scroll: Jack Kerouac's <i>On the Road</i> Manuscript</h3>
+          <div>
+
+            <img src="images/scroll.jpg" alt="Scroll">
+            <p> <i>On the Road</i> is a novel by American writer Jack Kerouac. The novel is based on the travels of Kerouac and his friends across America.
+                 It is considered a defining work of the postwar Beat and Counterculture generations, with its protagonists living life against a backdrop 
+                 of jazz, poetry, and drug use.
+            </p>
+            <p>
+            The first draft of what was to become the published novel was written in three weeks in April 1951.
+            The manuscript was typed on what he called "the scroll" - a continuous, one hundred and twenty-foot scroll of tracing paper sheets that he cut to size and taped together. 
+            </p>
+          </div>
+
+
+
+          <h3>Credits</h3>
+          <div id = "test">
+            <ul>
+              <li><i>On the Road</i> Manuscript Owner: James S. Irsay </li>
+
+              <li>Copyright Estate of Anthony G. Sampatacacus and the Estate of Jan Kerouac</li>
+
+              <li>Digital Scan of Manuscript: Heartland Printworks a subsidiary of Virtu Fine Arts Indianapolis, IN on a Cruse scanner.</li>
+
+              <li>Digital Scroll Viewer: The Advanced Visualization Lab at Indiana University is a unit of the Research Technologies division of University Information Technology Services; Research Technologies is a Pervasive Technology Institute Cyberinfrastructure and Service Center.</li>
+
+          </div>
+
+        </div>
+   </div>
+
+</body>
+</html>
